@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/register', function(req, res){
-    res.sendFile(path.join(__dirname+'/public/registration.html'))
+    res.sendFile(path.join(__dirname+'/public/registration.html'));
 })
 
 // app.get('/login',function(){
