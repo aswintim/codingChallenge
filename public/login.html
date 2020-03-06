@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
+
 <body>
 
 
@@ -26,12 +27,12 @@
     <form id='loginForm'>
         <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Username">
+              <label for="username1">Username</label>
+              <input type="text" class="form-control" id="username1" placeholder="Username">
             </div>
             <div class="form-group col-md-6">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Password">
+              <input type="password" class="form-control" id="password1" placeholder="Password">
             </div>
           </div>
 
@@ -42,12 +43,12 @@
 
     <script>
         function myform(){
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var url = "http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/getuserlist?username="+username+"&password="+password;
-            var docu = document.getElementById("loginForm");
-            docu.setAttribute('action', url);
-            docu.setAttribute('method', 'GET'); 
+            var username = document.getElementById('username1').value;
+            var password = document.getElementById('password1').value;
+            var url = 'http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser'+'?username='+username+'&password='+password;
+            var docum = document.getElementById("loginForm");
+            docum.setAttribute('action', url);
+            docum.setAttribute('method', 'GET'); 
         }
     </script>
 
