@@ -1,6 +1,7 @@
 var exp = require("express");
 var app = exp();
 var path = require('path');
+var axios = require('axios');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -13,8 +14,18 @@ app.get('/', function(req, res){
 })
 
 app.get('/register', function(req, res){
-    res.sendFile(path.join(__dirname+'/public/registration.html'))
+    res.sendFile(path.join(__dirname+'/public/registration.html'));
+    res.send("Yup!!")
 })
+
+// app.post('/appendRegister', function(req, res){
+//     // var url = "http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser?" + "username=" + req.username + "&password=" + req.password;
+   
+// })
+
+// app.get('/submit', function(){
+
+// })
 
 // app.get('/login',function(){
 //     app.send("login page");

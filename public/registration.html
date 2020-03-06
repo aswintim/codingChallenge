@@ -12,12 +12,25 @@
 </head>
 
 <body>
-    <form action="/submit" method="POST">
+    <form id="your_form" action="http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser?username=abc&password=xyz" method="POST">
         First name: <input class="oneLine" type="text" placeholder="First Name" name="username">
-        Password: <input class="oneLine" type="password" placeholder='Password' name="password">
+        Password: <input class="oneLine" type="password" placeholder="Password" name="password">
         <!-- Email: <input class="oneLine" type="email" placeholder="Email" name="email">
         Phone Number: <input class="oneLine" type="number" placeholder='Phone Number' name='pNumber'> -->
         <input type="submit">
     </form>
+
+
+<!-- <script>
+    function appendFunction(){
+        var actionSrc = "http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser?" + "username="+document.getElementByName("username")[0].value+"&password="+document.getElementByName('password')[0];
+        // var your1_form = document.getElementById('your_form');
+        document.getElementById('your_form').action = actionSrc;
+        document.getElementById('your_form').method = "POST";
+        document.getElementById('your_form').submit();
+    }
+</script> -->
+   
 </body>
+
 </html>
