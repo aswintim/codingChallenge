@@ -24,33 +24,33 @@
 
 
 <div class="loginForm">
-    <form id='loginForm'>
+    <form id='loginForm' action="http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/getuserlist?username=admin&password=admin" method="GET">
         <div class="form-row">
             <div class="form-group col-md-6">
               <label for="username1">Username</label>
-              <input type="text" class="form-control" id="username1" placeholder="Username">
+              <input type="text" class="form-control" id="username1" placeholder="Username" name="username">
             </div>
             <div class="form-group col-md-6">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="password1" placeholder="Password">
+              <input type="password" class="form-control" id="password1" placeholder="Password" name="password">
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg" onclick="myform()">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
     </form>
 </div>
 
 
-    <script>
+    <!-- <script>
         function myform(){
             var username = document.getElementById('username1').value;
             var password = document.getElementById('password1').value;
-            var url = 'http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser'+'?username='+username+'&password='+password;
+            var url = 'http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser?username='+username+'&password='+password;
             var docum = document.getElementById("loginForm");
             docum.setAttribute('action', url);
             docum.setAttribute('method', 'GET'); 
         }
-    </script>
+    </script> -->
 
 
 </body>
