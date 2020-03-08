@@ -22,7 +22,7 @@
 
 <body>
     <div class="regi">
-    <form id='regiForm'>
+    <form id='regiForm' action="/request" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">First Name</label>
@@ -47,14 +47,14 @@
                   <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg" onclick="myform()">Submit</button>
+              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         
         
     </form>
 </div>
 
 
-    <script>
+    <!-- <script>
         function myform(){
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
@@ -62,9 +62,12 @@
             var docu = document.getElementById("regiForm");
             docu.setAttribute('action', url);
             docu.setAttribute('method', 'POST');
+
+            
+
             
         }
-    </script>
+    </script> -->
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
