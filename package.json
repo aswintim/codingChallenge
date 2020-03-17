@@ -3,17 +3,33 @@
   "version": "1.0.0",
   "description": "coding challenge",
   "main": "server.js",
+  "engines":{
+    "node": "12.16.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Aswin Timalsina, Shrill Shrestha",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "pth": "^1.0.0",
     "request": "^2.88.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AswinTimalsina/codingChallenge.git"
+  },
+  "keywords": [
+    "coding",
+    "challenge"
+  ],
+  "bugs": {
+    "url": "https://github.com/AswinTimalsina/codingChallenge/issues"
+  },
+  "homepage": "https://github.com/AswinTimalsina/codingChallenge#readme"
 }
