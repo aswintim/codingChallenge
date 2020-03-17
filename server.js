@@ -1,7 +1,7 @@
 var exp = require("express");
 var app = exp();
 var path = require("path"); // ???for sending html files on request, determining the path
-
+var port = process.env.PORT || 3030;
 var axios = require("axios");
 
 
@@ -66,6 +66,6 @@ app.get('/login',function(req, res){
     })
 
 
-app.listen(3030, function(){
+app.listen(port, function(){
     console.log('listening at port 3030');
 });
