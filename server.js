@@ -20,7 +20,7 @@ app.get('/register', function(req, res){
 })
 
 app.get('/login',function(req, res){
-    // res.sendFile(path.join(__dirname+'/public/login.html'));
+    // res.sendFile(path.join(__dirname+'/public/login.html'));  //instead of this one
     res.sendFile('/public/login.html', {root:__dirname});
 }
     )
@@ -43,10 +43,6 @@ app.get('/login',function(req, res){
             console.log(error);
         })
     })
-
-// var logged = () => {
-//     var 
-// }
 
     app.post('/register', (req, res)=>{
         var url = "http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser?username="+req.body.username+"&password="+req.body.password;

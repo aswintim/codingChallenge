@@ -1,139 +1,82 @@
-var request = require("request"),
-    readline = require("readline");
-
 let num_fields = 3;
-let counter = 1;
-let field = 1;
-let moistarization = 0;
-let time = 0;
-let check = false;
-let totalTime = 0;
+        let counter = 1;
+        let field = 1;
+        let moistarization = 0;
+        let time = 0;
+        let check = false;
+        let totalTime = 0;
+        let imag = document.getElementById("img123");
 
-console.log("hello World");
-const startCountdown = (increase_rate) => {
-    console.log("Field: ", field);
-    var interval = setInterval(() => {
-        console.log("Time: ", counter);
-        img = document.getElementById("#img123");
+        function startCountdown (increase_rate){
 
-        if(field == 1){
-            img.setAttribute("src=./irrigation_3.jpg");
-        }else if (field == 2){
-            img.setAttribute("src=./irrigation_2.jpg");
-        }else if(field == 3){
-            img.setAttribute("src=./irrigation_1.jpg");
-        }
+            
+            
+            var interval = setInterval(function(){    //setInterval IMPORTANT
+                console.log("Field: ", field);
+                console.log("Time: ", counter);
 
-        let count = document.getElementById("#count")
-        count.innerHTML(counter);
+                if(field == 1){
+                    imag.setAttribute("src", "irrigation_3.jpg");
+                    console.log("img1");
+                }else if (field == 2){
+                    imag.setAttribute("src", "irrigation_2.jpg");
+                }else if(field == 3){
+                    imag.setAttribute("src", "irrigation_1.jpg");
+                }
 
-        counter++;
-        moistarization += increase_rate;
+                let count = document.getElementById("count")
+                count.innerHTML = counter;
 
-        let moist = document.getElementById("#moist")
-        moist.innerHTML(moistarization);
+                counter++;
+                moistarization += increase_rate;
 
-        console.log("Moistarization: ", moistarization);
-        if(moistarization == 100){
-            moistarization = 0;
-            if(field < num_fields){
-                field += 1;
-                console.log("\nField: ", field);
-            }
-        }
+                let moist = document.getElementById("moist")
+                moist.innerHTML = moistarization;
 
-        if(counter > totalTime || check == true){
-            if(counter > totalTime){
-                counter = 1;
-                field = 1;
-                moistarization = 0;
-                time = 0;
-                check = false;
-                totalTime = 0;
-            }
-            console.log(totalTime);
-            clearInterval(interval);
+                console.log("Moistarization: ", moistarization);
+                if(moistarization == 100){
+                    moistarization = 0;
+                    if(field < num_fields){
+                        field += 1;
+                        console.log("\nField: ", field);
+                    }
+                }
+
+                if(counter > totalTime || check == true){
+                    if(counter > totalTime){
+                        counter = 1;
+                        field = 1;
+                        moistarization = 0;
+                        time = 0;
+                        check = false;
+                        totalTime = 0;
+                    }
+                    console.log("out", counter, totalTime);
+                    clearInterval(interval);
+                };
+            }, 1000);
         };
-    }, 1000);
-};
 
-function start(){
-    time = document.getElementById("#time123");
-    console.log(time);
-    totalTime = time * num_fields;
-    check = false;
+        function start(){
+            time = document.getElementById("exampleInputPassword1").value;
+            console.log(time);
+            totalTime = time * num_fields;
+            check = false;
 
-    if(time != 0){
-        let rate = 100/time;
-        startCountdown(rate);
-    }
-}
+            if(time != 0){
+                let rate = 100/time;
+                startCountdown(rate);
+            }
+        }
 
-function stop(){
-    if(time != 0){
-        check = true;
-    }
-}
+        function stop(){
+            if(time != 0){
+                check = true;
+            }
+        }
 
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        function printer(){
+            console.log("Hello World!");
+        }
 
-// const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// });
-
-// const getTime = (url)=>{
-//     request(url,(err, res, body)=>{
-//         console.log("\nConnected!!!\n");
-//         if(err){
-//             console.log("Error!");
-//             return 0;
-//         }
-//         var test = JSON.parse(res.body);
-//         time = test["time"];
-//         let rate = 100/time;
-//         totalTime = time * num_fields;
-//         startCountdown(rate);
-//     });
-// }
-
-// console.log("Welcome to IrriApp!!");
-// console.log("Press 1 to log-in or any key to register: ");
-// rl.question("Option key: ", (key)=>{
-//     if(key == 1){
-//         rl.question("Enter your username: ", (u)=>{
-//             rl.question("Enter your password: ", (p)=>{
-//                 const aut_url = `http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/getuserlist?username=${u}&password=${p}`;
-//                 request(aut_url, (err, res, body)=>{
-//                 var state = JSON.parse(res.body);
-//                 if(!err && state["Status"] == "Success"){
-//                     rl.question("Enter number of rows in the field: ", function(num){
-//                         num_fields = num;
-//                         getTime("http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/gettime");
-//                         rl.close();
-//                     });
-//                 }else{
-//                     console.log("Couldn't authenticate!");
-//                     rl.close();
-//                 }
-//             });
-//             });
-//         });
-//     }else{
-//         rl.question("Make a username: ", (na)=>{
-//             rl.question("Make a password: ", (pa)=>{
-//                 const reg_url = `http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/adduser?username=${na}&password=${pa}`
-//                 request.post({
-//                     url:reg_url,
-//                 }, function(err, res, body){
-//                     if(err){
-//                         console.log("\nCouldn't register!!!");
-//                     }else{
-//                         console.log("You are registered!!!");
-//                     }
-//                 });
-//                 rl.close()
-//             })
-//         });
-//     }
-// });
+        // document.getElementById("btn12").addEventListener("click", start)

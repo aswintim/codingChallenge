@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
- 
+
 </head>
 
 <body>
 
     <!--http://ec2-3-14-152-181.us-east-2.compute.amazonaws.com/api/data/getuserlist?username=admin&password=admin -->
     <div class="loginForm">
+        <h2 class="regis">Login Form</h2>
         <form id='loginForm' action="/login" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -31,8 +32,9 @@
         </form>
 
         <form action="/register" method="GET"><button type="submit"
-                class="btn-register btn btn-primary btn-lg">Register</button></form>
-        
+                class="btn-register btn btn-primary btn-lg">Register</button>
+        </form>
+
     </div>
     </div>
 
