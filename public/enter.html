@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="../app.js"></script>
 </head>
 
 <body>
@@ -21,12 +20,12 @@
                 <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Time (in seconds)</label>
-                        <input type="number" class="form-control" id="exampleInputPassword1 time123" placeholder="Time"
+                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Time"
                             name="time">
                         <h2 id = "count"></h2>
                         <h2 id = "moist"></h2>
-                        <button onclick="start()">Start</button>
-                        <button onclick="stop()">Stop</button>
+                        <button id = "btn12">Start</button>
+                        <button id = "btn22" onclick="stop()">Stop</button>
                     </div>
                 </div>
             </div>
@@ -42,7 +41,88 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+     <script>
+        let num_fields = 3;
+        let counter = 1;
+        let field = 1;
+        let moistarization = 0;
+        let time = 0;
+        let check = false;
+        let totalTime = 0;
+        let img = document.getElementById("img123");
 
+        function startCountdown (increase_rate){
+
+            console.log("Field: ", field);
+            
+            var interval = setInterval(function(){
+                console.log("Time: ", counter);
+
+                if(field == 1){
+                    img.setAttribute("src", "./irrigation_3.jpg");
+                }else if (field == 2){
+                    img.setAttribute("src", "./irrigation_2.jpg");
+                }else if(field == 3){
+                    img.setAttribute("src", "./irrigation_1.jpg");
+                }
+
+                let count = document.getElementById("count")
+                count.innerHTML = counter;
+
+                counter++;
+                moistarization += increase_rate;
+
+                let moist = document.getElementById("moist")
+                moist.innerHTML = moistarization;
+
+                console.log("Moistarization: ", moistarization);
+                if(moistarization == 100){
+                    moistarization = 0;
+                    if(field < num_fields){
+                        field += 1;
+                        console.log("\nField: ", field);
+                    }
+                }
+
+                if(counter > totalTime || check == true){
+                    if(counter > totalTime){
+                        counter = 1;
+                        field = 1;
+                        moistarization = 0;
+                        time = 0;
+                        check = false;
+                        totalTime = 0;
+                    }
+                    console.log("out", counter, totalTime);
+                    clearInterval(interval);
+                };
+            }, 1000);
+        };
+
+        function start(){
+            time = document.getElementById("exampleInputPassword1").value;
+            console.log(time);
+            totalTime = time * num_fields;
+            check = false;
+
+            if(time != 0){
+                let rate = 100/time;
+                startCountdown(rate);
+            }
+        }
+
+        function stop(){
+            if(time != 0){
+                check = true;
+            }
+        }
+
+        function printer(){
+            console.log("Hello World!");
+        }
+
+        document.getElementById("btn12").addEventListener("click", start)
+    </script>
 
 </body>
 

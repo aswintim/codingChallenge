@@ -9,6 +9,7 @@ let time = 0;
 let check = false;
 let totalTime = 0;
 
+console.log("hello World");
 const startCountdown = (increase_rate) => {
     console.log("Field: ", field);
     var interval = setInterval(() => {
@@ -50,6 +51,7 @@ const startCountdown = (increase_rate) => {
                 check = false;
                 totalTime = 0;
             }
+            console.log(totalTime);
             clearInterval(interval);
         };
     }, 1000);
@@ -57,6 +59,8 @@ const startCountdown = (increase_rate) => {
 
 function start(){
     time = document.getElementById("#time123");
+    console.log(time);
+    totalTime = time * num_fields;
     check = false;
 
     if(time != 0){
