@@ -1,0 +1,58 @@
+        body{
+            padding: 10px;
+        }
+
+        img{
+            height: 500px;
+        }
+
+        .back{
+            background: #D9E2E4;
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 8px;
+            border: 2px solid #868686   ;
+        }
+
+        .oneLine {
+            display: block;
+        }
+
+        .loginForm {
+            background: #FFC0CB;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .button-style{
+            display: flex;
+        }
+
+        .btn-register{
+            margin-left: 10px;
+        }
+
+        .oneLine{
+            display: block;
+        }
+
+        .regi{
+            background:#FFC0CB;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .stylee{
+            background:#FFC0CB;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        h2.regis{
+            text-align: center;
+        }
